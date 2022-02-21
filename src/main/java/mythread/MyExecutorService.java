@@ -13,6 +13,8 @@ public class MyExecutorService {
         executorService.execute(new MyTask(4));
         executorService.execute(new MyTask(5));
 
+        executorService.submit(new MyTask(6));
+
         executorService.shutdown();
     }
 }
