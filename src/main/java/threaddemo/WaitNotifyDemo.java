@@ -16,17 +16,17 @@ public class WaitNotifyDemo {
 class Queue {
     private int i;
 
-    private boolean lock = false;
+    private boolean lock = true;
 
     synchronized public void put(int i) {
-        while (lock)
+        while (!lock)
             try {
                 wait();
             } catch (Exception e) {
                 e.printStackTrace();
             }
 
-        lock = true;
+        lock = false;
 
         this.i = i;
         System.out.println("Put :" + i);
@@ -35,14 +35,14 @@ class Queue {
     }
 
     synchronized public int get() {
-        while(!lock)
+        while(lock)
             try {
                 wait();
             } catch (Exception e) {
                 e.printStackTrace();
             }
 
-        lock = false;
+        lock = true;
         System.out.println("Get:" + i);
         notify();
         return i;
