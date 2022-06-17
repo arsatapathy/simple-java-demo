@@ -29,7 +29,15 @@ public class Test {
         Test test = stringFunc3.func("ashish");
 
         System.out.println(test.getMessage());
+
+        GenericStringFunc<String> genericStringFunc1 = Test::display;
+
+        genericStringFunc1.func("satapathy");
   }
+
+    public static <T> void display(T t) {
+        System.out.println(t);
+    }
 
     public static String reverse(String str) {
         StringBuilder result = new StringBuilder();
@@ -53,6 +61,12 @@ public class Test {
     }
 
 
+
+
+}
+
+interface GenericStringFunc<T> {
+    void func(T t);
 }
 
 interface StringFunc {
