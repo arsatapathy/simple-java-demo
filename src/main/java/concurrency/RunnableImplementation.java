@@ -1,6 +1,6 @@
 package concurrency;
 
-public class RunnableImplementaion {
+public class RunnableImplementation {
     public static void main(String[] args) {
         Runnable runnable = () -> {
             System.out.println("I am running " + Thread.currentThread().getName());
